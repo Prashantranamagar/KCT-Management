@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1>List Cordinators</h1>
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Phone No</th>
+            <th>Email</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Detail</th>
+
+        </thead>
+        {% for cord in list_cord %}
+                <tr>
+                    <td>{{ cord }}</td>
+                    <td>{{ cord.phone_no }}</td>
+                    <td>{{ cord.email }}</td>
+                    <td>
+                        <a href="{% url 'delete_cord' pk=cord.id %}">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'update_cord' pk=cord.id %}">
+                            <button class="btn btn-warning">Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'detail_cord' pk=cord.id %}">
+                            <button class="btn btn-light">Detail</button>
+                        </a>
+                    </td>
+                </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

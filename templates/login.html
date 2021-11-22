@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="col-sm-6">
+        <form  method="post" enctype="multipart/form-data">
+         <!-- enctype ="multipart/formdata" used for sending data that is not txt, used for sending files-->
+            {% csrf_token %}
+            {{ form|crispy }}
+            {# comment #}
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
